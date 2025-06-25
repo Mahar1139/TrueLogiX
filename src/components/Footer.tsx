@@ -26,7 +26,7 @@ export function Footer() {
                 Events
               </Link>
               <Link href="/feedback" className="text-sm text-muted-foreground hover:text-primary">
-                Feedback
+                Student Feedback
               </Link>
             </nav>
           </div>
