@@ -43,12 +43,12 @@ export function WebsiteLeadSection() {
                     Have an Idea? Let's Build It Together.
                  </h2>
                  <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed">
-                    From simple landing pages to complex web applications, our team has the expertise to bring your vision to life. Fill out the form to get a free quote.
+                    From simple landing pages to complex web applications, our team has the expertise to bring your vision to life. Fill out the form to get a project quote.
                  </p>
             </div>
              <Card>
               <CardHeader>
-                <CardTitle className="font-headline">Get a Free Quote</CardTitle>
+                <CardTitle className="font-headline">Request a Project Quote</CardTitle>
                 <CardDescription>Tell us about your project and we'll get back to you.</CardDescription>
               </CardHeader>
               <CardContent className="pt-4">
@@ -94,7 +94,7 @@ export function WebsiteLeadSection() {
                       )}
                     />
                     <Button type="submit" size="lg" className="w-full">
-                      Request a Quote
+                      Get Quote
                     </Button>
                   </form>
                 </Form>
