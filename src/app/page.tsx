@@ -4,6 +4,7 @@ import { courses, testimonials } from '@/lib/data';
 import { ArrowRight, CheckCircle, Quote } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { WebsiteLeadSection } from '@/components/WebsiteLeadSection';
 
 export default function Home() {
   return (
@@ -89,6 +90,8 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <WebsiteLeadSection />
 
         {/* Testimonials Section */}
         <section className="w-full py-12 md:py-24 lg:py-32 bg-card">

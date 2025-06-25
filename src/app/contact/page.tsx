@@ -3,6 +3,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import type { z } from 'zod';
+import Image from 'next/image';
 import { useToast } from '@/hooks/use-toast';
 import { contactFormSchema } from '@/lib/schemas';
 import { Button } from '@/components/ui/button';
