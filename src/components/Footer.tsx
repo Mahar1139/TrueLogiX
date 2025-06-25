@@ -14,7 +14,7 @@ export function Footer() {
         </div>
         <div className="grid grid-cols-2 gap-8">
           <div>
-            <h3 className="mb-4 font-semibold">Pages</h3>
+            <h3 className="mb-4 font-semibold">Navigate</h3>
             <nav className="flex flex-col gap-2">
               <Link href="/" className="text-sm text-muted-foreground hover:text-primary">
                 Home
@@ -25,19 +25,19 @@ export function Footer() {
               <Link href="/events" className="text-sm text-muted-foreground hover:text-primary">
                 Events
               </Link>
-              <Link href="/feedback" className="text-sm text-muted-foreground hover:text-primary">
-                Student Feedback
-              </Link>
             </nav>
           </div>
           <div>
             <h3 className="mb-4 font-semibold">Connect</h3>
             <nav className="flex flex-col gap-2">
+              <Link href="/contact" className="text-sm text-muted-foreground hover:text-primary">
+                Contact Us
+              </Link>
               <Link href="/#make-your-website" className="text-sm text-muted-foreground hover:text-primary">
                 Make Your Website
               </Link>
-              <Link href="/contact" className="text-sm text-muted-foreground hover:text-primary">
-                Contact Us
+              <Link href="/feedback" className="text-sm text-muted-foreground hover:text-primary">
+                Student Feedback
               </Link>
             </nav>
           </div>
