@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Logo } from './Logo';
+import { Facebook, Instagram } from 'lucide-react';
 
 export function Footer() {
   return (
@@ -12,6 +13,14 @@ export function Footer() {
            <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
             © {new Date().getFullYear()} TrueLogiX. All Rights Reserved.
           </p>
+          <div className="flex items-center gap-4">
+            <Link href="#" aria-label="Facebook" className="text-muted-foreground transition-colors hover:text-primary">
+              <Facebook className="h-5 w-5" />
+            </Link>
+            <Link href="#" aria-label="Instagram" className="text-muted-foreground transition-colors hover:text-primary">
+              <Instagram className="h-5 w-5" />
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
