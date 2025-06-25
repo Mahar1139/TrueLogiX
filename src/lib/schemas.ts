@@ -14,5 +14,6 @@ export const recommendationFormSchema = z.object({
 export const websiteLeadSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
   email: z.string().email({ message: 'Please enter a valid email address.' }),
+  whatsapp: z.string().optional(),
   projectDetails: z.string().min(10, { message: 'Please provide some details about your project.' }),
 });

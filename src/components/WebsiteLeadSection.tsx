@@ -20,6 +20,7 @@ export function WebsiteLeadSection() {
     defaultValues: {
       name: '',
       email: '',
+      whatsapp: '',
       projectDetails: '',
     },
   });
@@ -75,6 +76,19 @@ export function WebsiteLeadSection() {
                           <FormLabel>Email</FormLabel>
                           <FormControl>
                             <Input placeholder="your.email@example.com" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name="whatsapp"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>WhatsApp Number (Optional)</FormLabel>
+                          <FormControl>
+                            <Input placeholder="+1 123 456 7890" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
