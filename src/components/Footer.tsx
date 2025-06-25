@@ -44,6 +44,9 @@ export function Footer() {
               <Link href="/feedback" className="text-sm text-muted-foreground hover:text-primary">
                 Student Feedback
               </Link>
+              <Link href="/feedback" className="text-sm text-muted-foreground hover:text-primary">
+                Client Feedback
+              </Link>
             </nav>
           </div>
         </div>
