@@ -20,7 +20,7 @@ export default function Home() {
                     Unlock Your Potential in Tech
                   </h1>
                   <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                    Explore our expert-led courses in web design, coding, and robotics. Start your journey with LearnFlow today.
+                    Explore our expert-led courses in web design, coding, and robotics. Start your journey with TrueLogiX today.
                   </p>
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">

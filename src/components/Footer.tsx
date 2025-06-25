@@ -10,7 +10,7 @@ export function Footer() {
         </div>
         <div className="flex flex-col items-center gap-4 sm:flex-row sm:gap-6">
            <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
-            © {new Date().getFullYear()} LearnFlow. All Rights Reserved.
+            © {new Date().getFullYear()} TrueLogiX. All Rights Reserved.
           </p>
         </div>
       </div>

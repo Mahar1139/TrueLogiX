@@ -20,7 +20,7 @@ const space_grotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: 'LearnFlow',
+  title: 'TrueLogiX',
   description:
     'Your gateway to mastering web design, coding, and robotics. Join us to learn, create, and innovate.',
 };
