@@ -169,6 +169,30 @@ export const courses: Course[] = [
     },
     schedule: 'Thursdays, 6:00 PM - 9:00 PM',
   },
+  {
+    id: '8',
+    slug: 'cpp-programming-essentials',
+    title: 'C++ Programming Essentials',
+    description: 'Learn C++, the powerful object-oriented language behind game engines and high-performance apps.',
+    longDescription: 'This course covers the core concepts of C++, from basic syntax to object-oriented principles like classes, inheritance, and polymorphism. It is ideal for those looking to get into game development, high-performance computing, or systems software. You will work on practical projects to build a strong foundation in C++.',
+    category: 'Coding',
+    level: 'Intermediate',
+    duration: '12 weeks',
+    image: 'https://placehold.co/400x225.png',
+    dataAiHint: 'c++ code',
+    syllabus: [
+      { title: 'Weeks 1-3: C++ Basics', content: 'Syntax, control flow, and functions.' },
+      { title: 'Weeks 4-6: Object-Oriented Programming', content: 'Classes, objects, and encapsulation.' },
+      { title: 'Weeks 7-9: Inheritance and Polymorphism', content: 'Building complex class hierarchies.' },
+      { title: 'Weeks 10-12: Standard Template Library (STL)', content: 'Using containers, iterators, and algorithms.' },
+    ],
+    instructor: {
+      name: 'Chris Evans',
+      bio: 'Chris is a software architect with extensive experience in C++ for building high-performance applications. He is a strong advocate for modern C++ practices.',
+      image: 'https://placehold.co/100x100.png',
+    },
+    schedule: 'Fridays, 6:00 PM - 9:00 PM',
+  },
 ];
 
 export const events: Event[] = [
