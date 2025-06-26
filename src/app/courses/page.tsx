@@ -7,7 +7,7 @@ import { CourseCard } from '@/components/CourseCard';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
-const categories = ['All', 'Web Design', 'Coding', 'Robotics'];
+const categories = ['All', 'Web Design', 'Coding', 'Robotics', 'Cyber Security'];
 const levels = ['All', 'Beginner', 'Intermediate', 'Advanced'];
 
 export default function CoursesPage() {

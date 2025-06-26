@@ -4,7 +4,7 @@ export type Course = {
   title: string;
   description: string;
   longDescription: string;
-  category: 'Web Design' | 'Coding' | 'Robotics';
+  category: 'Web Design' | 'Coding' | 'Robotics' | 'Cyber Security';
   level: 'Beginner' | 'Intermediate' | 'Advanced';
   duration: string;
   image: string;
