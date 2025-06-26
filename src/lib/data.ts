@@ -169,6 +169,30 @@ export const courses: Course[] = [
     },
     schedule: 'Fridays, 6:00 PM - 9:00 PM',
   },
+  {
+    id: '9',
+    slug: 'embedded-c-programming',
+    title: 'Embedded C Programming',
+    description: 'Learn C programming for microcontrollers and embedded systems. A hands-on approach to real-world hardware.',
+    longDescription: 'This course bridges the gap between C programming and hardware. You will learn how to write efficient C code for resource-constrained embedded systems, interface with peripherals like GPIO, timers, and serial ports, and understand the fundamentals of embedded software development. This is a practical course for anyone looking to get into IoT, robotics, or firmware development.',
+    category: 'Coding',
+    level: 'Intermediate',
+    duration: '10 weeks',
+    image: 'https://placehold.co/400x225.png',
+    dataAiHint: 'microcontroller circuit',
+    syllabus: [
+      { title: 'Weeks 1-2: Intro to Embedded Systems', content: 'Microcontroller architecture and development toolchains.' },
+      { title: 'Weeks 3-4: C for Embedded Systems', content: 'Bit manipulation, memory-mapped I/O, and data structures.' },
+      { title: 'Weeks 5-7: Peripherals and Interfaces', content: 'Working with GPIO, UART, I2C, and SPI.' },
+      { title: 'Weeks 8-10: Real-Time Concepts & Project', content: 'Interrupts, timers, and a final hands-on project.' },
+    ],
+    instructor: {
+      name: 'Mark Roberts',
+      bio: 'Mark is an embedded systems engineer with over 15 years of experience developing firmware for consumer electronics and industrial automation. He is passionate about making hardware accessible to software developers.',
+      image: 'https://placehold.co/100x100.png',
+    },
+    schedule: 'Mondays, 7:00 PM - 9:30 PM',
+  },
 ];
 
 export const events: Event[] = [
