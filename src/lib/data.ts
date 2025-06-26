@@ -10,7 +10,7 @@ export const courses: Course[] = [
     category: 'Web Design',
     level: 'Beginner',
     duration: '8 weeks',
-    image: 'https://placehold.co/400x225.png',
+    image: '/web.jpg',
     dataAiHint: 'web design',
     syllabus: [
       { title: 'Week 1: Introduction to UI/UX', content: 'Understanding user needs and design principles.' },
