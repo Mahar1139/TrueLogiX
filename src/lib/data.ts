@@ -34,7 +34,7 @@ export const courses: Course[] = [
     category: 'Coding',
     level: 'Beginner',
     duration: '6 weeks',
-    image: 'https://placehold.co/400x225.png',
+    image: '/react.jpg',
     dataAiHint: 'react javascript',
     syllabus: [
       { title: 'Week 1: JavaScript Refresher & JSX', content: 'Reviewing modern JavaScript and learning JSX syntax.' },
