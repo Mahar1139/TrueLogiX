@@ -106,7 +106,7 @@ export const courses: Course[] = [
     category: 'Coding',
     level: 'Intermediate',
     duration: '10 weeks',
-    image: 'https://placehold.co/400x225.png',
+    image: 'https://bs-uploads.toptal.io/blackfish-uploads/components/blog_post_page/4087150/cover_image/regular_1708x683/cover-0828_AfterAllTheseYearstheWorldisStillPoweredbyCProgramming_Razvan_Newsletter-09c602d672400e97949703273ad4fc66.png',
     dataAiHint: 'c language code',
     syllabus: [
       { title: 'Weeks 1-2: Core Concepts', content: 'Syntax, data types, and control structures.' },
