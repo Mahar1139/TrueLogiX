@@ -54,19 +54,19 @@ export default function ContactPage() {
                 </div>
                  <div className="flex items-center gap-4">
                     <Phone className="h-6 w-6 text-primary" />
-                    <span>+1 (555) 123-4567</span>
+                    <span>+91 9760651947</span>
                 </div>
                  <div className="flex items-center gap-4">
                     <MapPin className="h-6 w-6 text-primary" />
-                    <span>123 Innovation Drive, Tech City, USA</span>
+                    <span>Aincholi Pithoragarh, Uttarakhand, India, 262501</span>
                 </div>
             </div>
              <div className="mt-8">
                 <Image
-                    src="https://placehold.co/600x400.png"
+                    src="/truelogix.jpg"
                     width="600"
                     height="400"
-                    alt="Contact"
+                    alt="TrueLogiX Location"
                     data-ai-hint="office building"
                     className="rounded-lg object-cover"
                 />
