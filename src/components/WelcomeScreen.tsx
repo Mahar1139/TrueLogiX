@@ -19,14 +19,14 @@ export function WelcomeScreen() {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const hasBeenShown = sessionStorage.getItem(WELCOME_SCREEN_KEY);
+      const hasBeenShown = localStorage.getItem(WELCOME_SCREEN_KEY);
 
       if (hasBeenShown) {
         setShouldRender(false);
         return;
       }
 
-      sessionStorage.setItem(WELCOME_SCREEN_KEY, 'true');
+      localStorage.setItem(WELCOME_SCREEN_KEY, 'true');
 
       const timers: NodeJS.Timeout[] = [];
       const sequence = [
