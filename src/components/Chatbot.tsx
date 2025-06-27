@@ -6,9 +6,9 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import { Bot, Send, User, X } from 'lucide-react';
+import { Bot, Send, User } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
+import { Avatar, AvatarFallback } from './ui/avatar';
 
 type Message = {
   id: string;
@@ -16,22 +16,33 @@ type Message = {
   sender: 'user' | 'bot';
 };
 
+const suggestedQuestions = [
+  'What is TrueLogiX?',
+  'What courses do you offer?',
+  'Who created TrueLogiX?',
+];
+
 export default function Chatbot() {
-  const [messages, setMessages] = useState<Message[]>([]);
+  const [messages, setMessages] = useState<Message[]>([
+    {
+      id: 'initial-bot-message',
+      text: "Hello! I'm the TrueLogiX assistant. How can I help you today?",
+      sender: 'bot',
+    },
+  ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const scrollAreaRef = useRef<HTMLDivElement>(null);
 
-  const handleSend = async () => {
-    if (input.trim() === '') return;
+  const sendMessage = async (questionText: string) => {
+    if (questionText.trim() === '') return;
 
-    const userMessage: Message = { id: Date.now().toString(), text: input, sender: 'user' };
+    const userMessage: Message = { id: Date.now().toString(), text: questionText, sender: 'user' };
     setMessages((prev) => [...prev, userMessage]);
-    setInput('');
     setIsLoading(true);
 
     try {
-      const { answer } = await faqChatbot({ question: input });
+      const { answer } = await faqChatbot({ question: questionText });
       const botMessage: Message = { id: (Date.now() + 1).toString(), text: answer, sender: 'bot' };
       setMessages((prev) => [...prev, botMessage]);
     } catch (error) {
@@ -46,6 +57,16 @@ export default function Chatbot() {
       setIsLoading(false);
     }
   };
+
+  const handleSend = () => {
+    sendMessage(input);
+    setInput('');
+  };
+  
+  const handleSuggestedQuestionClick = (question: string) => {
+    sendMessage(question);
+  };
+
 
   useEffect(() => {
     if (scrollAreaRef.current) {
@@ -111,6 +132,24 @@ export default function Chatbot() {
                   )}
                 </div>
               ))}
+              
+              {messages.length === 1 && !isLoading && (
+                <div className="px-4 pb-4 flex flex-col items-start space-y-2">
+                  <p className='text-sm text-muted-foreground mb-2'>Or ask one of these questions:</p>
+                  {suggestedQuestions.map((q) => (
+                    <Button
+                      key={q}
+                      variant="outline"
+                      size="sm"
+                      className="h-auto w-full justify-start text-left py-1.5 px-3"
+                      onClick={() => handleSuggestedQuestionClick(q)}
+                    >
+                      {q}
+                    </Button>
+                  ))}
+                </div>
+              )}
+
               {isLoading && (
                  <div className="flex items-end gap-2 justify-start">
                     <Avatar className='h-8 w-8'>
