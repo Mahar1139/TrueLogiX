@@ -6,9 +6,16 @@ import { cn } from '@/lib/utils';
 
 const WELCOME_SCREEN_KEY = 'welcomeScreenShown';
 
+const emojis = ['🔬', '💻', '⚙️', '📈'];
+
 export function WelcomeScreen() {
   const [shouldRender, setShouldRender] = useState(true);
   const [isFadingOut, setIsFadingOut] = useState(false);
+  const [visibleElements, setVisibleElements] = useState({
+    logo: false,
+    emojis: [false, false, false, false],
+    text: false,
+  });
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -21,17 +28,28 @@ export function WelcomeScreen() {
 
       sessionStorage.setItem(WELCOME_SCREEN_KEY, 'true');
 
-      const fadeOutTimer = setTimeout(() => {
-        setIsFadingOut(true);
-      }, 2500); // Visible for 2.5s
+      const timers: NodeJS.Timeout[] = [];
+      const sequence = [
+        () => setVisibleElements(p => ({ ...p, logo: true })),
+        () => setVisibleElements(p => ({ ...p, emojis: [true, false, false, false] })),
+        () => setVisibleElements(p => ({ ...p, emojis: [true, true, false, false] })),
+        () => setVisibleElements(p => ({ ...p, emojis: [true, true, true, false] })),
+        () => setVisibleElements(p => ({ ...p, emojis: [true, true, true, true] })),
+        () => setVisibleElements(p => ({ ...p, text: true })),
+        () => setIsFadingOut(true),
+        () => setShouldRender(false),
+      ];
 
-      const unmountTimer = setTimeout(() => {
-        setShouldRender(false);
-      }, 3500); // 2.5s + 1s fade-out
+      const delays = [200, 400, 200, 200, 200, 400, 1900, 1000];
+      let cumulativeDelay = 0;
+
+      sequence.forEach((action, index) => {
+        cumulativeDelay += delays[index];
+        timers.push(setTimeout(action, cumulativeDelay));
+      });
 
       return () => {
-        clearTimeout(fadeOutTimer);
-        clearTimeout(unmountTimer);
+        timers.forEach(clearTimeout);
       };
     }
   }, []);
@@ -47,16 +65,30 @@ export function WelcomeScreen() {
         isFadingOut ? 'opacity-0' : 'opacity-100'
       )}
     >
-      <div className="text-center animate-fade-in-down">
-        <div className="inline-block mb-8">
-          <Logo />
+      <div className="relative flex flex-col items-center justify-center">
+        <div className="relative flex items-center justify-center w-48 h-48">
+          {/* Logo in the center */}
+          {visibleElements.logo && (
+            <div className="animate-pop-in">
+              <Logo />
+            </div>
+          )}
+          {/* Emojis positioned around the logo */}
+          {visibleElements.emojis[0] && <div className="absolute text-4xl -top-2 left-4 animate-pop-in">{emojis[0]}</div>}
+          {visibleElements.emojis[1] && <div className="absolute text-4xl top-14 -right-4 animate-pop-in">{emojis[1]}</div>}
+          {visibleElements.emojis[2] && <div className="absolute text-4xl -bottom-2 right-4 animate-pop-in">{emojis[2]}</div>}
+          {visibleElements.emojis[3] && <div className="absolute text-4xl bottom-14 -left-4 animate-pop-in">{emojis[3]}</div>}
         </div>
-        <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl font-headline text-primary">
-          Welcome
-        </h1>
-        <p className="mt-4 text-lg text-muted-foreground">
-          Your journey to innovation starts now.
-        </p>
+        {visibleElements.text && (
+          <div className="mt-8 text-center animate-fade-in-down">
+            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl font-headline text-primary">
+              Welcome to TrueLogiX
+            </h1>
+            <p className="mt-4 text-lg text-muted-foreground">
+              Your journey to innovation starts now.
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );
