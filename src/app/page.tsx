@@ -37,10 +37,11 @@ export default function Home() {
                 </div>
               </div>
               <Image
-                src="/truelogix.jpg"
+                src="/web.jpg"
                 width="600"
                 height="400"
                 alt="TrueLogiX Hero"
+                data-ai-hint="web design"
                 className="mx-auto aspect-video overflow-hidden rounded-xl object-cover sm:w-full lg:order-last"
               />
             </div>
