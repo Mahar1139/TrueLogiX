@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { LoadingLink as Link } from '@/components/LoadingLink';
 import { Logo } from './Logo';
 import { Facebook, Instagram } from 'lucide-react';
 

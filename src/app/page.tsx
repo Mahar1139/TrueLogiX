@@ -3,7 +3,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { courses, testimonials } from '@/lib/data';
 import { ArrowRight, CheckCircle, Quote } from 'lucide-react';
 import Image from 'next/image';
-import Link from 'next/link';
+import { LoadingLink as Link } from '@/components/LoadingLink';
 import { WebsiteLeadSection } from '@/components/WebsiteLeadSection';
 
 export default function Home() {

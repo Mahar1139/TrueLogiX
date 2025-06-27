@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import { LoadingLink as Link } from '@/components/LoadingLink';
 
 export function Logo() {
   return (

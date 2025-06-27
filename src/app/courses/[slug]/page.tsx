@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Clock, BarChart, UserCircle, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import Link from 'next/link';
+import { LoadingLink as Link } from '@/components/LoadingLink';
 
 export async function generateStaticParams() {
   return courses.map((course) => ({

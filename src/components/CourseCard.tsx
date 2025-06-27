@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { LoadingLink as Link } from '@/components/LoadingLink';
 import Image from 'next/image';
 import type { Course } from '@/lib/definitions';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from './ui/card';
