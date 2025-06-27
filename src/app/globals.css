@@ -83,3 +83,31 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .stem-emoji {
+    @apply absolute text-4xl;
+    animation: revolve 3s linear infinite;
+  }
+  .stem-emoji.s {
+    animation-delay: 0s;
+  }
+  .stem-emoji.t {
+    animation-delay: -0.75s;
+  }
+  .stem-emoji.e {
+    animation-delay: -1.5s;
+  }
+  .stem-emoji.m {
+    animation-delay: -2.25s;
+  }
+
+  @keyframes revolve {
+    from {
+      transform: rotate(0deg) translateX(70px) rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg) translateX(70px) rotate(-360deg);
+    }
+  }
+}

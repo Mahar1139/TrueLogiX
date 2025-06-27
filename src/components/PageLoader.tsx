@@ -22,11 +22,19 @@ export function PageLoader() {
   return (
     <div
       className={cn(
-        'pointer-events-none fixed top-0 left-0 z-[999] h-1 w-full transition-opacity duration-300',
-        loading ? 'opacity-100' : 'opacity-0'
+        'fixed inset-0 z-[999] flex items-center justify-center bg-background/80 backdrop-blur-sm transition-opacity duration-300',
+        loading ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
       )}
     >
-      <div className="h-full w-full bg-primary animate-pulse" />
+      <div className="relative flex items-center justify-center h-40 w-40">
+        <span className="text-2xl font-bold font-headline text-primary animate-pulse">
+          Future
+        </span>
+        <div className="stem-emoji s">🔬</div>
+        <div className="stem-emoji t">💻</div>
+        <div className="stem-emoji e">⚙️</div>
+        <div className="stem-emoji m">📈</div>
+      </div>
     </div>
   );
 }
