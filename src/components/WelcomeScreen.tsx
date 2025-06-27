@@ -3,13 +3,12 @@
 import { useState, useEffect } from 'react';
 import { Logo } from './Logo';
 import { cn } from '@/lib/utils';
-
-const WELCOME_SCREEN_KEY = 'welcomeScreenShown';
+import { usePathname, useRouter } from 'next/navigation';
 
 const emojis = ['🔬', '💻', '⚙️', '📈'];
 
 export function WelcomeScreen() {
-  const [shouldRender, setShouldRender] = useState(true);
+  const [shouldRender, setShouldRender] = useState(false);
   const [isFadingOut, setIsFadingOut] = useState(false);
   const [visibleElements, setVisibleElements] = useState({
     logo: false,
@@ -17,42 +16,52 @@ export function WelcomeScreen() {
     text: false,
   });
 
+  const pathname = usePathname();
+  const router = useRouter();
+
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const hasBeenShown = localStorage.getItem(WELCOME_SCREEN_KEY);
+    const isClientNavigating = sessionStorage.getItem('client-navigation');
 
-      if (hasBeenShown) {
-        setShouldRender(false);
-        return;
-      }
-
-      localStorage.setItem(WELCOME_SCREEN_KEY, 'true');
-
-      const timers: NodeJS.Timeout[] = [];
-      const sequence = [
-        () => setVisibleElements(p => ({ ...p, logo: true })),
-        () => setVisibleElements(p => ({ ...p, emojis: [true, false, false, false] })),
-        () => setVisibleElements(p => ({ ...p, emojis: [true, true, false, false] })),
-        () => setVisibleElements(p => ({ ...p, emojis: [true, true, true, false] })),
-        () => setVisibleElements(p => ({ ...p, emojis: [true, true, true, true] })),
-        () => setVisibleElements(p => ({ ...p, text: true })),
-        () => setIsFadingOut(true),
-        () => setShouldRender(false),
-      ];
-
-      const delays = [200, 400, 200, 200, 200, 400, 1900, 1000];
-      let cumulativeDelay = 0;
-
-      sequence.forEach((action, index) => {
-        cumulativeDelay += delays[index];
-        timers.push(setTimeout(action, cumulativeDelay));
-      });
-
-      return () => {
-        timers.forEach(clearTimeout);
-      };
+    if (isClientNavigating) {
+      // If we are navigating via a link click, remove the flag and do nothing.
+      sessionStorage.removeItem('client-navigation');
+      setShouldRender(false);
+      return;
     }
-  }, []);
+
+    // If it's a hard load/reload on any page other than home, redirect to home.
+    if (pathname !== '/') {
+      router.replace('/');
+      return;
+    }
+    
+    // If we are on the homepage, show the welcome animation.
+    setShouldRender(true);
+
+    const timers: NodeJS.Timeout[] = [];
+    const sequence = [
+      () => setVisibleElements(p => ({ ...p, logo: true })),
+      () => setVisibleElements(p => ({ ...p, emojis: [true, false, false, false] })),
+      () => setVisibleElements(p => ({ ...p, emojis: [true, true, false, false] })),
+      () => setVisibleElements(p => ({ ...p, emojis: [true, true, true, false] })),
+      () => setVisibleElements(p => ({ ...p, emojis: [true, true, true, true] })),
+      () => setVisibleElements(p => ({ ...p, text: true })),
+      () => setIsFadingOut(true),
+      () => setShouldRender(false),
+    ];
+
+    const delays = [200, 400, 200, 200, 200, 400, 1900, 1000];
+    let cumulativeDelay = 0;
+
+    sequence.forEach((action, index) => {
+      cumulativeDelay += delays[index];
+      timers.push(setTimeout(action, cumulativeDelay));
+    });
+
+    return () => {
+      timers.forEach(clearTimeout);
+    };
+  }, [pathname, router]);
 
   if (!shouldRender) {
     return null;

@@ -18,6 +18,8 @@ export function LoadingLink({ onClick, href, ...props }: LoadingLinkProps) {
         // This prevents the loader from showing on hash links or links to the same page.
         if (targetUrl.pathname !== pathname) {
             window.dispatchEvent(new CustomEvent('navigation-start'));
+            // Set a session flag to indicate client-side navigation is happening.
+            sessionStorage.setItem('client-navigation', 'true');
         }
 
         if (onClick) {
