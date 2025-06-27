@@ -3,6 +3,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import type { z } from 'zod';
+import Image from 'next/image';
 import { useToast } from '@/hooks/use-toast';
 import { websiteLeadSchema } from '@/lib/schemas';
 import { Button } from '@/components/ui/button';
@@ -37,15 +38,25 @@ export function WebsiteLeadSection() {
   return (
     <section id="make-your-website" className="w-full py-12 md:py-24 lg:py-32 border-t">
       <div className="container px-4 md:px-6">
+        <div className="space-y-4 text-center mb-12">
+            <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm font-headline">Make Your Website</div>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-headline">
+              Have an Idea? Let's Build It Together.
+            </h2>
+            <p className="max-w-3xl mx-auto text-muted-foreground md:text-xl/relaxed">
+              From simple landing pages to complex web applications, our team has the expertise to bring your vision to life. Fill out the form to get a project quote.
+            </p>
+        </div>
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-16 items-center">
-            <div className="space-y-4">
-                 <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm font-headline">Make Your Website</div>
-                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-headline">
-                    Have an Idea? Let's Build It Together.
-                 </h2>
-                 <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed">
-                    From simple landing pages to complex web applications, our team has the expertise to bring your vision to life. Fill out the form to get a project quote.
-                 </p>
+            <div className="flex justify-center">
+                <Image
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRi66qkFS0iaXHJDK_o4QpDDfhPchmEfh7vGw&s"
+                    alt="Web development project"
+                    width={600}
+                    height={400}
+                    data-ai-hint="web development"
+                    className="rounded-lg object-cover"
+                />
             </div>
              <Card>
               <CardHeader>
