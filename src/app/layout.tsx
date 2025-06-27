@@ -7,6 +7,7 @@ import { Footer } from '@/components/Footer';
 import { Toaster } from '@/components/ui/toaster';
 import Chatbot from '@/components/Chatbot';
 import { PageLoader } from '@/components/PageLoader';
+import { WelcomeScreen } from '@/components/WelcomeScreen';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -40,6 +41,7 @@ export default function RootLayout({
           space_grotesk.variable
         )}
       >
+        <WelcomeScreen />
         <PageLoader />
         <div className="relative flex min-h-screen flex-col">
           <Header />
