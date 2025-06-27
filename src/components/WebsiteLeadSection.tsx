@@ -48,7 +48,7 @@ export function WebsiteLeadSection() {
               From simple landing pages to complex web applications, our team has the expertise to bring your vision to life. Fill out the form to get a project quote.
             </p>
             <Image
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRi66qkFS0iaXHJDK_o4QpDDfhPchmEfh7vGw&s"
+                src="/truelogix.jpg"
                 width="600"
                 height="400"
                 alt="Website Idea"
