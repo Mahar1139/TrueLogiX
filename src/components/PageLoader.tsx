@@ -28,7 +28,7 @@ export function PageLoader() {
     >
       <div className="relative flex items-center justify-center h-40 w-40">
         <span className="text-2xl font-bold font-headline text-primary animate-pulse">
-          Future
+          TrueLogiX
         </span>
         <div className="stem-emoji s">🔬</div>
         <div className="stem-emoji t">💻</div>
