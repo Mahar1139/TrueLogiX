@@ -130,7 +130,7 @@ export const courses: Course[] = [
     category: 'Cyber Security',
     level: 'Beginner',
     duration: '12 weeks',
-    image: 'https://placehold.co/400x225.png',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzgLSbmgYxJMTJcUwssl1hmgjJjLsURQsWjg&s',
     dataAiHint: 'cyber security',
     syllabus: [
       { title: 'Weeks 1-3: Intro to Security', content: 'Threats, vulnerabilities, and risk management.' },
