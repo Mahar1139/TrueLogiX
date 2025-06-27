@@ -26,8 +26,8 @@ export function PageLoader() {
         loading ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
       )}
     >
-      <div className="relative flex items-center justify-center h-40 w-40">
-        <span className="text-2xl font-bold font-headline text-primary animate-pulse">
+      <div className="revolve-container relative flex items-center justify-center h-36 w-36 sm:h-40 sm:w-40">
+        <span className="text-xl sm:text-2xl font-bold font-headline text-primary animate-pulse">
           TrueLogiX
         </span>
         <div className="stem-emoji s">🔬</div>
