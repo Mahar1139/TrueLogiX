@@ -37,7 +37,7 @@ export default function Home() {
                 </div>
               </div>
               <Image
-                src="/web.jpg"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRi66qkFS0iaXHJDK_o4QpDDfhPchmEfh7vGw&s"
                 width="600"
                 height="400"
                 alt="TrueLogiX Hero"
