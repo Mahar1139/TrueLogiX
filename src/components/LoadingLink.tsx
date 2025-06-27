@@ -10,9 +10,16 @@ export function LoadingLink({ onClick, href, ...props }: LoadingLinkProps) {
     const pathname = usePathname();
 
     const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-        if (href.toString() !== pathname) {
+        // Create a URL object to safely parse the href.
+        // This handles relative, absolute, and full URL hrefs.
+        const targetUrl = new URL(href.toString(), window.location.origin);
+        
+        // We only trigger the loading bar if the pathname is different.
+        // This prevents the loader from showing on hash links or links to the same page.
+        if (targetUrl.pathname !== pathname) {
             window.dispatchEvent(new CustomEvent('navigation-start'));
         }
+
         if (onClick) {
             onClick(e);
         }
